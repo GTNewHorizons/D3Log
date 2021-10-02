@@ -177,7 +177,7 @@ public class LookupTask implements Runnable
             StringBuilder sql = new StringBuilder("SELECT * FROM `" + prefix + "_data` WHERE `undone` = FALSE AND ");
             List<String> parts = new ArrayList<>();
             if (locationSet) parts.add("`x` = " + x + " AND `y` = " + y + " AND `z` = " + z + " AND `dim` = " + owner.dimension);
-            if (uuid != null) parts.add("`player_id` = " + PlayerCache.getFromUUID(uuid));
+            if (uuid != null) parts.add("`player_id` = " + PlayerCache.getFromUUID(uuid).getId());
             JOINER_AND.appendTo(sql, parts);
             sql.append(" ORDER BY `id` ASC");
 
